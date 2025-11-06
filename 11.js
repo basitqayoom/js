@@ -1,4 +1,3 @@
-
 // Implement Array.prototype.includes Polyfill
 
 // Description:
@@ -31,6 +30,7 @@
 function includesPolyfill(searchElement, fromIndex = 0) {
   const arr = this;
   let startIndex = fromIndex >= 0 ? fromIndex : arr.length + fromIndex;
+  if (startIndex < 0) startIndex = 0;
   for (let i = startIndex; i < arr.length; ++i) {
     if (isNaN(arr[i]) && isNaN(searchElement)) return true;
     if (!(i in arr) && searchElement === undefined) return true;
